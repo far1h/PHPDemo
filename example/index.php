@@ -6,9 +6,18 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+        }
+    </style>
     <script>
 
         document.write("COMING JAVASCRIPT")
     </script>
+    <?php 
+    echo "FROM PHP";
+    ?>
 </body>
 </html>
