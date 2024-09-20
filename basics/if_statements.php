@@ -6,9 +6,10 @@ $number2 = 20;
 
 if($number1 > $number2){ 
     echo "IT IS ";
-    
+} elseif($number1 < $number2){
+    echo "IT IS";
 } else {
-    echo "ITS IS NOT ";
+    echo "SAME ";
 }
 
 echo "<br>";
