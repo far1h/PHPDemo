@@ -8,7 +8,7 @@
 <body>
     <h2>Basic Form</h2>
 
-    <form action="process.php" method="get">
+    <form action="process.php" method="post">
         <input type="text" placeholder="Enter Username" name="username"> 
         <input type="text" placeholder="Enter Password" name="password">
         <input type="text" placeholder="Enter Status" name="status">
