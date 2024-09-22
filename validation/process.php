@@ -15,9 +15,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $emailErr = "Invalid email format";
         }
     }
+
+    if(empty($usernameErr) && empty($emailErr)){
+        echo"Form submitted";   
+        echo "<br>";
+        echo "Username: " . $username . "<br>";
+        echo "Email: " . $email . "<br>";
+    } else {
+        echo "Errors: <br>";
+        echo $usernameErr . "<br>";
+        echo $emailErr . "<br>";
+    }
 }
-
-echo $usernameErr;
-
-echo $username;
 
