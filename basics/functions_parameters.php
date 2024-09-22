@@ -8,7 +8,19 @@ function greet($name){
 greet("Alice");
 
 function calculateRectangleArea($width, $height){
-    echo  $width * $height;
+    return $width * $height;
 }
 
-calculateRectangleArea(10,5);
+echo calculateRectangleArea(10,5) . "<br>";
+
+$areaRectangle = calculateRectangleArea(10,5);
+
+echo 34 + $areaRectangle . "<br>";
+
+function calculateSum($a, $b){
+    return $a + $b;
+}
+
+$sum = calculateSum(5, 10);
+
+echo "the sum is: $sum";
