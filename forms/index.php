@@ -11,7 +11,6 @@
     <form action="process.php" method="post">
         <input type="text" placeholder="Enter Username" name="username"> 
         <input type="text" placeholder="Enter Password" name="password">
-        <input type="text" placeholder="Enter Status" name="status">
         <input type="submit">
     </form>
 </body>
