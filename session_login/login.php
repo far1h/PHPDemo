@@ -1,3 +1,24 @@
+<?php
+    if($_SERVER['REQUEST_METHOD']=="POST"){
+
+        $username = 'admin';
+        $password = 'secret';
+
+        $inputUsername = $_POST['username'];
+        $inputPassword = $_POST['password'];
+        
+    }
+
+
+
+
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
