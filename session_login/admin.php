@@ -7,6 +7,6 @@
 </head>
 <body>
     <h2>Welcome Admin</h2>
-    <a href="logout.php"></a>
+    <a href="logout.php">Logout</a>
 </body>
 </html>

@@ -1,4 +1,6 @@
 <?php
+
+$message = "";
     if($_SERVER['REQUEST_METHOD']=="POST"){
 
         $username = 'admin';
@@ -7,15 +9,17 @@
         $inputUsername = $_POST['username'];
         $inputPassword = $_POST['password'];
         
+        if($inputUsername === $username && $inputPassword === $password){
+            $_SESSION['loggedIn'] = true;
+            $_SESSION['username'] = $inputUsername;
+
+            header("Location: admin.php");
+            exit;
+        }else{
+            $message = "Invalid username or password";
+        }
+
     }
-
-
-
-
-
-
-
-
 
 ?>
 
@@ -29,6 +33,9 @@
 <body>
     <h2>Login Page</h2>
 
+    <?php if ($message): ?>
+        <p style="color:red;"><?php echo $message?></p>
+    <?php endif; ?>
     <form method="post">
         <label for="username">Username</label>
         <input type="text" name="username" id="username"><br><br>
