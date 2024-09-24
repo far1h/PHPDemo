@@ -1,6 +1,6 @@
 <?php
-
-$message = "";
+    session_start();
+    $message = "";
     if($_SERVER['REQUEST_METHOD']=="POST"){
 
         $username = 'admin';
@@ -40,7 +40,7 @@ $message = "";
         <label for="username">Username</label>
         <input type="text" name="username" id="username"><br><br>
         <label for="password">Password</label>
-        <input type="text" name="password" id="password"><br><br>
+        <input type="password" name="password" id="password"><br><br>
 
         <input type="submit" value="Login">
         

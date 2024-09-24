@@ -1,3 +1,15 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] !== true) {   
+        header("Location: login.php");
+        exit;
+    }
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +18,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Welcome Admin</h2>
+    <h2>Welcome <?php echo $_SESSION['username'] ?></h2>
     <a href="logout.php">Logout</a>
 </body>
 </html>
