@@ -17,5 +17,9 @@ include("db.php");
     <p>
         <a href="login.php">Login</a>
     </p>
+
+    <p>
+        <a href="register.php">Register</a>
+    </p>
 </body>
 </html>
