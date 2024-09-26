@@ -18,20 +18,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if (mysqli_num_rows($result) > 0){
             $error = "Username already exists. Please choose another";
-        }
-
-        // if  ($result){
-        //     echo "<pre>";
-        //     var_dump($result);
-        //     echo "</pre>";
-        // }
-
-        $query = "INSERT INTO users (username, password, email) VALUES ('$username','$password','$email')";
-        $result = mysqli_query($conn, $query);
-        if($result){
-            echo "DATA INSERTED";
         } else {
-            echo "Error: " . mysqli_error($conn);
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            $query = "INSERT INTO users (username, password, email) VALUES ('$username','$passwordHash','$email')";
+            $result = mysqli_query($conn, $query);
+            if($result){
+                echo "DATA INSERTED";
+            } else {
+                $error = mysqli_error($conn);
+            }
         }
     }
 
