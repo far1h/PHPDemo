@@ -23,8 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if($result){
                 $_SESSION['logged_in'] = true;
                 $_SESSION['username'] = $username;
-                header("Location: admin.php");
-                exit;
+                redirect('admin.php');
             } else {
                 $error = mysqli_error($conn);
             }
