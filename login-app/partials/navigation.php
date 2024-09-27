@@ -1,6 +1,4 @@
-<?php
-include ("functions.php");
-?>
+
 
 <nav>
     <ul>
@@ -20,12 +18,12 @@ include ("functions.php");
         </li>
     <?php else: ?>
         <li>
-            <a class="<?php echo setActiveClass("login.php")?>" 
-            href="login.php">Login</a>
-        </li>
-        <li>
             <a class="<?php echo setActiveClass("register.php")?>" 
             href="register.php">Register</a>        
+        </li>
+        <li>
+            <a class="<?php echo setActiveClass("login.php")?>" 
+            href="login.php">Login</a>
         </li>
     <?php endif; ?>
     </ul>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 include ("db.php");
+include ("functions.php");
 ?>
 
 
@@ -12,5 +13,5 @@ include ("db.php");
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="<?php echo getPageClass()?>">
 

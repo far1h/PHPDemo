@@ -4,6 +4,19 @@ body {
     padding-top: 50px;
 }
 
+body.index {
+    background-color: #f4f4f4;
+}
+
+body.register{
+    background-color: #fff3e0;
+}
+
+
+body.login{
+    background-color: #e0f7fa;
+}
+
 .container {
     margin: 10px;
 }
