@@ -43,22 +43,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 <div class="container">
-
-
-<h2>Register</h2>
-
-<?php if($error): ?>
-    <p style="color:red">
-        <?php echo $error; ?>
-    </p>
-<?php endif; ?>
+    
+    <?php if($error): ?>
+        <p style="color:red">
+            <?php echo $error; ?>
+        </p>
+        <?php endif; ?>
+        
     <div class="form-container">
+        
         <form method="POST" action="">
-
-            <!-- Error message placeholder -->
-            <p style="color:red">
-                <!-- Error message goes here -->
-            </p>
+            <h2>Create your account</h2>
 
             <label for="username">Username:</label>
             <input placeholder="Enter your username" type="text" name="username" required>

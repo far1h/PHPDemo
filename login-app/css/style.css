@@ -1,7 +1,7 @@
       
 body {
     margin: 0;
-    padding-top: 50px;
+    padding-top: 20px
 }
 
 body.index {
@@ -16,12 +16,19 @@ body.register{
     background-color: #fff3e0;
 }
 
-body.register .form-container, body.login .form-container{
+body.register , body.login {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     padding: 20px;
+}
+
+body.register .form-container h2, body.login .form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
 }
 
 body.register form, body.login form {
@@ -33,9 +40,9 @@ body.register form, body.login form {
     max-width: 400px;
 }
 
-body.register form input[type = 'text'],
-body.register form input[type = 'email'],
-body.register form input[type = 'password']{
+form input[type = 'text'],
+form input[type = 'email'],
+form input[type = 'password']{
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -44,6 +51,31 @@ body.register form input[type = 'password']{
     box-sizing: border-box;
     font-size: 16px;
 }
+
+form input[type = 'submit']{
+    width: 100%;
+    padding: 14px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+form input[type = 'submit']:hover{
+    background-color: #ff6b6b;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+
 
 .container {
     margin: 10px;
