@@ -1,3 +1,12 @@
+<?php
+
+$current_page = basename($_SERVER['PHP_SELF']);
+
+echo ''. $current_page .'';
+
+?>
+
+
 <nav>
     <ul>
         <li>
@@ -6,7 +15,8 @@
 
     <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true): ?>
         <li>
-            <a href="admin.php">Admin</a>
+            <a class="<?php if($current_page === "index.php"){echo "active";}?>" 
+            href="admin.php">Admin</a>
         </li>
         <li>
             <a href="logout.php">Logout</a>
