@@ -24,7 +24,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $query = "INSERT INTO users (username, password, email) VALUES ('$username','$passwordHash','$email')";
             $result = mysqli_query($conn, $query);
             if($result){
-                echo "DATA INSERTED";
+                $_SESSION['logged_in'] = true;
+                $_SESSION['username'] = $username;
+                header("Location: admin.php");
+                exit;
             } else {
                 $error = mysqli_error($conn);
             }
@@ -44,28 +47,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <div class="container">
     
-    <?php if($error): ?>
-        <p style="color:red">
-            <?php echo $error; ?>
-        </p>
-        <?php endif; ?>
+
         
     <div class="form-container">
         
         <form method="POST" action="">
             <h2>Create your account</h2>
-
+            <?php if($error): ?>
+                <p style="color:red">
+                    <?php echo $error; ?>
+                </p>
+            <?php endif; ?>
             <label for="username">Username:</label>
-            <input placeholder="Enter your username" type="text" name="username" required>
+            <input value="<?php echo isset($username) ? $username : ''; ?>"
+            placeholder="Enter your username" type="text" name="username" required>
 
             <label for="email">Email:</label>
-            <input placeholder="Enter your email" type="email" name="email" required>
+            <input value="<?php echo isset($email) ? $email : ''; ?>"
+            placeholder="Enter your email" type="email" name="email" required>
 
             <label for="password">Password:</label>
-            <input placeholder="Enter your password" type="password" name="password" required>
+            <input value="<?php echo isset($password) ? $password : ''; ?>"
+            placeholder="Enter your password" type="password" name="password" required>
 
             <label for="confirm_password">Confirm Password:</label>
-            <input placeholder="Confirm your password" type="password" name="confirm_password" required>
+            <input value="<?php echo isset($confirm_password) ? $confirm_password : ''; ?>"
+            placeholder="Confirm your password" type="password" name="confirm_password" required>
 
             <input type="submit" value="Register">
         </form>
