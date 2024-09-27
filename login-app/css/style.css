@@ -8,6 +8,10 @@ body.index {
     background-color: #f4f4f4;
 }
 
+body.login{
+    background-color: #e0f7fa;
+}
+
 body.register{
     background-color: #fff3e0;
 }
@@ -16,11 +20,8 @@ body.register .form-container, body.login .form-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
-}
-
-body.login{
-    background-color: #e0f7fa;
+    height: 100vh;
+    padding: 20px;
 }
 
 body.register form, body.login form {
@@ -28,6 +29,20 @@ body.register form, body.login form {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+body.register form input[type = 'text'],
+body.register form input[type = 'email'],
+body.register form input[type = 'password']{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
 .container {
