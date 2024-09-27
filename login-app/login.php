@@ -1,7 +1,6 @@
 <?php
-include("db.php");
-
-session_start();
+include("partials/header.php");
+include("partials/navigation.php");
 
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true) {
       header("Location: admin.php");
