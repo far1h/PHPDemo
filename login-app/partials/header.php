@@ -1,3 +1,9 @@
+<?php
+session_start();
+include ("db.php");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,5 +12,4 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Welcome to admin</h2>
-    <?php include("partials/navigation.php");   ?>
+
