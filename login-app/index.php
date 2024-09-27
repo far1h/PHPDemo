@@ -2,6 +2,8 @@
 
 include("db.php");
 
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -15,11 +17,18 @@ include("db.php");
     <h2>Welcome to the homepage</h2>
     
     <p>
-        <a href="login.php">Login</a>
+        <a href="register.php">Register</a>        
     </p>
 
-    <p>
-        <a href="register.php">Register</a>
-    </p>
+    <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true): ?>
+        <p>
+            <a href="admin.php">Admin</a>
+        </p>
+    <?php else: ?>
+        <p>
+            <a href="login.php">Login</a>
+        </p>
+    <?php endif; ?>
+   
 </body>
 </html>
