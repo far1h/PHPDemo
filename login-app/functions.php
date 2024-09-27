@@ -24,3 +24,7 @@ function user_exists($conn, $username) {
 
     return mysqli_num_rows($result) > 0;
 }
+
+function convert_to_date($date){
+    return date("F j", strtotime($date));
+}
