@@ -1,16 +1,23 @@
-<p>
+<nav>
+    <ul>
+        <li>
+            <a href="index.php">Home</a>
+        </li>
+    <li>
         <a href="register.php">Register</a>        
-    </p>
+    </li>
 
     <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true): ?>
-        <p>
+        <li>
             <a href="admin.php">Admin</a>
-        </p>
-        <p>
+        </li>
+        <li>
             <a href="logout.php">Logout</a>
-        </p>
+        </li>
     <?php else: ?>
-        <p>
+        <li>
             <a href="login.php">Login</a>
-        </p>
+        </li>
     <?php endif; ?>
+    </ul>
+</nav>

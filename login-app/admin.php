@@ -7,4 +7,4 @@
 </head>
 <body>
     <h2>Welcome to admin</h2>
-    <?php include("partials/navigation.php");   ?>
+    <?php include("partials/footer.php");   ?>
