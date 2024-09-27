@@ -26,6 +26,45 @@ body.index .hero {
     z-index: 1;
 }
 
+body.index .hero .hero-content {
+    max-width: 600px;
+    padding: 20px;
+}
+
+body.index .hero .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+body.index .hero .hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+body.index .hero .hero-content .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+body.index .hero .hero-content .hero-buttons .btn {
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: #ff6b6b;
+}
+
+body.index .hero .hero-content .hero-buttons .btn:hover {
+    background-color: #ff4b4b;
+}
+
+
+/* .here::before{
+
+} */
+
 body.login{
     background-color: #e0f7fa;
 }
