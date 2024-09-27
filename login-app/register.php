@@ -42,15 +42,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 
-
-    <h2>Register</h2>
-
-    <?php if($error): ?>
-        <p style="color:red">
-            <?php echo $error; ?>
-        </p>
-    <?php endif; ?>
 <div class="container">
+
+
+<h2>Register</h2>
+
+<?php if($error): ?>
+    <p style="color:red">
+        <?php echo $error; ?>
+    </p>
+<?php endif; ?>
     <div class="form-container">
         <form method="POST" action="">
             <h2>Create your Account</h2>

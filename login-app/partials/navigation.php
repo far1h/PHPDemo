@@ -3,9 +3,6 @@
         <li>
             <a href="index.php">Home</a>
         </li>
-    <li>
-        <a href="register.php">Register</a>        
-    </li>
 
     <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true): ?>
         <li>
@@ -17,6 +14,9 @@
     <?php else: ?>
         <li>
             <a href="login.php">Login</a>
+        </li>
+        <li>
+            <a href="register.php">Register</a>        
         </li>
     <?php endif; ?>
     </ul>
