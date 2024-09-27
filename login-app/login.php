@@ -11,10 +11,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) > 0){
-            $user = mysqli_fetch_assoc($result);
-            $user['id']
-    } else {
+        $user = mysqli_fetch_assoc($result);
 
+            if(password_verify($password, $user["password"])){
+                $_SESSION['logged_in'] = true;
+                $_SESSION['username'] = $user['username'];
+                header("Location: admin.php");
+                exit;
+            } else {
+                $error = "Invalid password";
+            }
+
+    } else {
+            $error = "Invalid user";
     }
 
 }
@@ -32,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Document</title>
 </head>
 <body>
-    <h2>Register</h2>
+    <h2>Login</h2>
 
     <?php if($error): ?>
         <p style="color:red">
@@ -55,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <label for="password">Password:</label><br>
             <input placeholder="Enter your password" type="password" name="password" required><br><br>
 
-            <input type="submit" value="Register">
+            <input type="submit" value="Login">
         </form>
     </div>
 </div>
