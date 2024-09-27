@@ -24,6 +24,9 @@ session_start();
         <p>
             <a href="admin.php">Admin</a>
         </p>
+        <p>
+            <a href="logout.php">Logout</a>
+        </p>
     <?php else: ?>
         <p>
             <a href="login.php">Login</a>
