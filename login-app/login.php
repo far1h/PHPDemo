@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <?php endif; ?>
     <div class="form-container">
         <form method="POST" action="">
-            <h2>Create your Account</h2>
+
 
             <!-- Error message placeholder -->
             <p style="color:red">
