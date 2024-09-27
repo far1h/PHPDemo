@@ -2,6 +2,7 @@
 include("partials/header.php");
 include("partials/navigation.php");
 ?>
+
 <div class="container">
 
     <div class="hero">

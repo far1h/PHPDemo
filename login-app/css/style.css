@@ -13,7 +13,7 @@ body.index .container {
 }
 
 body.index .hero {
-    background-color: #282828 ;
+    background-image: url("../images/hero-image.png") ;
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -60,10 +60,15 @@ body.index .hero .hero-content .hero-buttons .btn:hover {
     background-color: #ff4b4b;
 }
 
-
-/* .here::before{
-
-} */
+.hero::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
 
 body.login{
     background-color: #e0f7fa;
