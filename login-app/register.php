@@ -2,6 +2,10 @@
 include("partials/header.php");
 include("partials/navigation.php");
 
+if (is_logged_in()) {
+    redirect("admin.php");
+}
+
 $error = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
