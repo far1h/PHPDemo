@@ -12,9 +12,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
         $new_username = mysqli_real_escape_string($conn, $_POST["username"]);
         $new_email = mysqli_real_escape_string($conn, $_POST["email"]);
 
-        $query = "UPDATE users SET email = '$new_email', username = '$new_username' WHERE id = $user_id";
-        $result = mysqli_query($conn, $query);
-        $query_status = check_query($result);
+        $query_status = check_query(result: update_user($conn, $user_id, $new_username, $new_email));
         if($query_status){
 
             $_SESSION['message'] = "User updated successfully";
@@ -25,9 +23,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     }
     if(isset($_POST["delete_user"])){
         $user_id = mysqli_real_escape_string($conn, $_POST["user_id"]);
-        $query = "DELETE FROM users WHERE id = $user_id";
-        $result = mysqli_query($conn, $query);
-        $query_status = check_query($result);
+        $query_status = check_query(delete_user($conn, $user_id));
         if($query_status){
 
             $_SESSION['message'] = "User deleted successfully";
@@ -94,4 +90,7 @@ $result = mysqli_query($conn,"SELECT id, username, email, reg_date FROM users");
     </table>
 </div>
 </div>
-<?php include("partials/footer.php");   ?>
+<?php 
+include("partials/footer.php");   
+mysqli_close( $conn);
+?>

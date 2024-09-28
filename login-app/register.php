@@ -21,8 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if (user_exists($conn, $username)) {
             $error = "Username already exists. Please choose another";
         } else {
-            $result = create_user($conn, $username, $email, $password);
-            if(check_query($conn, $result)){
+            if(check_query(create_user($conn, $username, $email, $password))){
                 $_SESSION['logged_in'] = true;
                 $_SESSION['username'] = $username;
                 redirect('admin.php');

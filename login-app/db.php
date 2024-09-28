@@ -14,7 +14,8 @@ if(!$conn){
     // echo "Connected";
 }
 
-function check_query($conn, $result){
+function check_query($result){
+    global $conn;
     if(!$result){
         return "Error" . mysqli_error($conn);
     }
@@ -33,5 +34,15 @@ function user_exists($conn, $username) {
 function create_user($conn, $username, $email, $password){
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     $query = "INSERT INTO users (username, password, email) VALUES ('$username','$passwordHash','$email')";
+    return mysqli_query($conn, $query);
+}
+
+function update_user($conn, $user_id, $new_username, $new_email){
+    $query = "UPDATE users SET email = '$new_email', username = '$new_username' WHERE id = $user_id";
+    return mysqli_query($conn, $query);
+}
+
+function delete_user($conn, $user_id){
+    $query = "DELETE FROM users WHERE id = $user_id";
     return mysqli_query($conn, $query);
 }
