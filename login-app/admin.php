@@ -17,6 +17,14 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             redirect("admin.php");
         }
     }
+    if(isset($_POST["delete_user"])){
+        $user_id = mysqli_real_escape_string($conn, $_POST["user_id"]);
+        $query = "DELETE FROM users WHERE id = $user_id";
+        $result = mysqli_query($conn, $query);
+        if(check_query( $result)){
+            redirect("admin.php");
+        }
+    }
 }
 
 $result = mysqli_query($conn,"SELECT id, username, email, reg_date FROM users");
