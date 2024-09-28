@@ -12,8 +12,10 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
         $new_email = mysqli_real_escape_string($conn, $_POST["email"]);
 
         $query = "UPDATE users SET email = '$new_email' WHERE id = $user_id";
-        mysqli_query($conn, $query);
-        redirect("admin.php");
+        $result = mysqli_query($conn, $query);
+        if(check_query( $result)){
+            redirect("admin.php");
+        }
     }
 }
 
