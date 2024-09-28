@@ -21,10 +21,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if (user_exists($conn, $username)) {
             $error = "Username already exists. Please choose another";
         } else {
-            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-            $query = "INSERT INTO users (username, password, email) VALUES ('$username','$passwordHash','$email')";
-            $result = mysqli_query($conn, $query);
-            if($result){
+            $result = create_user($conn, $username, $email, $password);
+            if(check_query($conn, $result)){
                 $_SESSION['logged_in'] = true;
                 $_SESSION['username'] = $username;
                 redirect('admin.php');
