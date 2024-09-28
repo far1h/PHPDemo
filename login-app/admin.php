@@ -9,9 +9,10 @@ if (!is_logged_in()) {
 if($_SERVER['REQUEST_METHOD'] === "POST"){
     if(isset($_POST["edit_user"])){
         $user_id = mysqli_real_escape_string($conn, $_POST["user_id"]);
+        $new_username = mysqli_real_escape_string($conn, $_POST["username"]);
         $new_email = mysqli_real_escape_string($conn, $_POST["email"]);
 
-        $query = "UPDATE users SET email = '$new_email' WHERE id = $user_id";
+        $query = "UPDATE users SET email = '$new_email', username = '$new_username' WHERE id = $user_id";
         $result = mysqli_query($conn, $query);
         if(check_query( $result)){
             redirect("admin.php");
@@ -56,6 +57,7 @@ $result = mysqli_query($conn,"SELECT id, username, email, reg_date FROM users");
             <td>
                 <form method="POST" style="display:inline-block;">
                     <input type="hidden" name="user_id" value="<?php echo $user['id']?>">
+                    <input type="text" name="username" value="<?php echo $user['username']?>" required>
                     <input type="email" name="email" value="<?php echo $user['email']?>" required>
                     <button class="edit" type="submit" name="edit_user">Edit</button>
                 </form>
