@@ -7,6 +7,12 @@ $database = new Database();
 
 $db = $database->connect();
 
+if($_SERVER['REQUEST_METHOD'] === "POST"){
+    if(isset($_POST["add_task"])){
+        
+    }
+}
+
 ?>
 
 <!-- Main Content Container -->
