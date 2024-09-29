@@ -28,6 +28,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none;
+}
+
+.notification-container.show{
+    display: block;
 }
 
 .notification {
