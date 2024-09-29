@@ -2,12 +2,11 @@
 
 class User {
 
+    public function create() {
+
+    }
 }
 
-$classes = get_declared_classes();
+$methods = get_class_methods("User");
 
-$date = new DateTime();
-
-$date->setTimeZone(new DateTimeZone("America/New_York"));
-
-echo $date->getTimezone()->getName();
+var_dump($methods);
