@@ -17,6 +17,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     if(isset($_POST["add_task"])){
         $todo->setTask($_POST["task"]);
         $todo->create();
+    } elseif (isset($_POST["complete_task"])){
+        $todo->complete($_POST['id']);
     }
 }
 
@@ -44,14 +46,14 @@ $tasks = $todo->read();
                 <?php if(!$task['is_completed']): ?>
                 <!-- Complete Task -->
                 <form method="POST" style="display:inline;">
-                    <input type="hidden" name="id" value="1">
+                    <input type="hidden" name="id" value="<?php echo $task['id']?>">
                     <button class="complete" type="submit" name="complete_task">Complete</button>
                 </form>
                 
                 <?php else : ?>
                 <!-- Undo Completed Task -->
                 <form method="POST" style="display:inline;">
-                    <input type="hidden" name="id" value="1">
+                    <input type="hidden" name="id" value="<?php echo $task['id']?>">
                     <button class="undo" type="submit" name="undo_complete_task">Undo</button>
                 </form>
                 <?php endif;    ?>
