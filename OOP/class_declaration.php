@@ -2,11 +2,21 @@
 
 class User {
 
-    public function create() {
-        return "creating users";
+    private $username;
+    
+    
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
     }
 }
 
 $user = new User();
-echo $user->create();
 
+$user->setUsername("Nigga");
+echo $user->getUsername();
