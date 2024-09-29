@@ -20,8 +20,11 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     } elseif (isset($_POST["complete_task"])){
         $todo->complete($_POST['id']);
     } elseif (isset($_POST['undo_complete_task'])){
-        $todo->UndoComplete($_POST['id']);
+        $todo->undoComplete($_POST['id']);
+    } elseif (isset($_POST['delete_task'])){
+        $todo->delete($_POST['id']);
     }
+        
 }
 
 $tasks = $todo->read();
@@ -61,7 +64,7 @@ $tasks = $todo->read();
                 <?php endif;    ?>
                 <!-- Delete Task -->
                 <form method="POST" style="display:inline;">
-                    <input type="hidden" name="id" value="1">
+                    <input type="hidden" name="id" value="<?php echo $task['id']?>">
                     <button class="delete" type="submit" name="delete_task">Delete</button>
                 </form>
             </div>
