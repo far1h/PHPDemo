@@ -1,23 +1,101 @@
 <?php
 
 class User {
+    public $name;
+    public $email;
 
-    private $username;
-
-    public function __construct($username) {
-        $this->username = $username;
-    }
-    
-    public function getUsername()
-    {
-        return $this->username;
+    public function __construct($name, $email) {
+        $this->name = $name;
+        $this->email = $email;
     }
 
-    public function setUsername($username)
+    public function displayUserInfo(){
+        echo"User: ".$this->name.", Email:" .$this->email;
+    }
+
+    /**
+     * Get the value of email
+     */ 
+    public function getEmail()
     {
-        $this->username = $username;
+        return $this->email;
+    }
+
+    /**
+     * Set the value of email
+     *
+     * @return  self
+     */ 
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name
+     */ 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @return  self
+     */ 
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
     }
 }
 
-$user = new User("mamamia");
-echo $user->getUsername();
+class AdminUser extends User {
+    public $role;
+
+    public function __construct($name, $email, $role) {
+        parent::__construct($name, $email);
+        $this->role = $role;
+    }
+
+    public function displayUserInfo(){
+        parent::displayUserInfo();
+        echo ", Role: ".$this->role;
+    }
+
+    /**
+     * Get the value of role
+     */ 
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * Set the value of role
+     *
+     * @return  self
+     */ 
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+}
+
+$user = new User("mo", "mo@123.com");
+
+$user->displayUserInfo();
+
+echo "<br>";
+
+$admin = new AdminUser("admin","admin@123.com","Admin");
+
+$admin->displayUserInfo();
+
+echo "<br>";
