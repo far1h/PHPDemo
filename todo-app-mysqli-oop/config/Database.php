@@ -15,7 +15,6 @@ class Database {
             if ($this->conn->connect_error) {
                 die('Connection failed'. $this->conn->connect_error);
             }
-            // echo "SUCCESS";
         } catch (Exception $error) {
             echo "Connection Error". $error->getMessage();
         }
