@@ -20,6 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     }
 }
 
+$tasks = $todo->read();
 ?>
 
 <!-- Main Content Container -->
@@ -34,21 +35,26 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
     <!-- Display Tasks -->
     <ul>
+        <?php while($task = $tasks->fetch_assoc()): ?>
         <li class="completed">
-            <span class="completed">Sample Task</span>
+            <span class="<?php echo $task['is_completed'] ? 'completed' : ''?>">
+                <?php echo $task['task']; ?>
+            </span>
             <div>
+                <?php if(!$task['is_completed']): ?>
                 <!-- Complete Task -->
                 <form method="POST" style="display:inline;">
                     <input type="hidden" name="id" value="1">
                     <button class="complete" type="submit" name="complete_task">Complete</button>
                 </form>
                 
+                <?php else : ?>
                 <!-- Undo Completed Task -->
                 <form method="POST" style="display:inline;">
                     <input type="hidden" name="id" value="1">
                     <button class="undo" type="submit" name="undo_complete_task">Undo</button>
                 </form>
-
+                <?php endif;    ?>
                 <!-- Delete Task -->
                 <form method="POST" style="display:inline;">
                     <input type="hidden" name="id" value="1">
@@ -73,6 +79,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                 </form>
             </div>
         </li>
+        <?php endwhile; ?>
     </ul>
 </div>
 

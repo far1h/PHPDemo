@@ -5,7 +5,7 @@ class Task {
     private $table = 'tasks';
     private $id;
     private $task;
-    private $is_completed = false;
+    private $status = false;
 
     public function __construct($db) {
         $this->conn = $db;
@@ -16,6 +16,12 @@ class Task {
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("s", $this->task);
         return $stmt->execute();
+    }
+
+    public function read() {
+        $query = "SELECT * FROM ". $this->table ." ORDER BY created_at DESC";
+        $result = $this->conn->query($query);
+        return $result;
     }
 
     /**
@@ -34,6 +40,26 @@ class Task {
     public function setTask($task)
     {
         $this->task = $task;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of status
+     */ 
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set the value of status
+     *
+     * @return  self
+     */ 
+    public function setStatus($status)
+    {
+        $this->status = $status;
 
         return $this;
     }
