@@ -3,10 +3,10 @@
 class User {
 
     public function create() {
-
+        return "creating users";
     }
 }
 
-$methods = get_class_methods("User");
+$user = new User();
+echo $user->create();
 
-var_dump($methods);
