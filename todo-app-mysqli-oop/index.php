@@ -19,6 +19,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
         $todo->create();
     } elseif (isset($_POST["complete_task"])){
         $todo->complete($_POST['id']);
+    } elseif (isset($_POST['undo_complete_task'])){
+        $todo->UndoComplete($_POST['id']);
     }
 }
 

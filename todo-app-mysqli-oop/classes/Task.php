@@ -31,6 +31,13 @@ class Task {
         return $stmt->execute();
     }
 
+    public function UndoComplete($id) {
+        $query = "UPDATE  ". $this->table ." SET is_completed = 0 WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $id);
+        return $stmt->execute();
+    }
+
 
 
     /**
