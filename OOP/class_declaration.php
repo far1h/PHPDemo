@@ -3,7 +3,10 @@
 class User {
 
     private $username;
-    
+
+    public function __construct($username) {
+        $this->username = $username;
+    }
     
     public function getUsername()
     {
@@ -16,7 +19,5 @@ class User {
     }
 }
 
-$user = new User();
-
-$user->setUsername("Nigga");
+$user = new User("mamamia");
 echo $user->getUsername();
