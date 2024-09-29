@@ -66,23 +66,6 @@ $tasks = $todo->read();
                 </form>
             </div>
         </li>
-
-        <li>
-            <span>Another Task</span>
-            <div>
-                <!-- Complete Task -->
-                <form method="POST" style="display:inline;">
-                    <input type="hidden" name="id" value="2">
-                    <button class="complete" type="submit" name="complete_task">Complete</button>
-                </form>
-
-                <!-- Delete Task -->
-                <form method="POST" style="display:inline;">
-                    <input type="hidden" name="id" value="2">
-                    <button class="delete" type="submit" name="delete_task">Delete</button>
-                </form>
-            </div>
-        </li>
         <?php endwhile; ?>
     </ul>
 </div>
