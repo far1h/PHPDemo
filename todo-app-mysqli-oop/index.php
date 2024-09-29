@@ -3,6 +3,7 @@ include("partials/header.php");
 include("partials/notifications.php");
 include("config/Database.php");
 include("classes/Task.php");
+session_start();
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
@@ -17,18 +18,38 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     if(isset($_POST["add_task"])){
         $todo->setTask($_POST["task"]);
         $todo->create();
+        $_SESSION['message'] = 'Task added successfully';
+        $_SESSION['msg_type'] = "success";
     } elseif (isset($_POST["complete_task"])){
         $todo->complete($_POST['id']);
+        $_SESSION['message'] = 'Task marked complete';
+        $_SESSION['msg_type'] = "success";
     } elseif (isset($_POST['undo_complete_task'])){
         $todo->undoComplete($_POST['id']);
+        $_SESSION['message'] = 'Task marked incomplete';
+        $_SESSION['msg_type'] = "success";
     } elseif (isset($_POST['delete_task'])){
         $todo->delete($_POST['id']);
+        $_SESSION['message'] = 'Task deleted';
+        $_SESSION['msg_type'] = "success";
     }
         
 }
 
 $tasks = $todo->read();
 ?>
+<!-- Notification Container -->
+<?php if(isset($_SESSION['message'])): ?>
+<div class="notification-container">
+    <div class="notification <?php echo $_SESSION['msg_type']?>">
+        <?php echo $_SESSION['message']; ?>
+        <?php unset($_SESSION['message']); ?>
+    </div>
+</div>
+
+<?php endif;    ?>
+
+
 
 <!-- Main Content Container -->
 <div class="container">
